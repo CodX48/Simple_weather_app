@@ -37,7 +37,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 70%;
     height: 80%;
     background-image: linear-gradient(to bottom,#010c19,#2f4f4f);
     border-radius: 20px;
@@ -103,15 +103,17 @@ form button span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 80%;
     background-color: #2d2e2d00;
+    
 }
 .current-weather-info{
-    height: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .current-weather-info h1{
@@ -123,9 +125,21 @@ font-size: 20px;
 font-weight: 600;
 color: #afd2ff;
 }
+.weather-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.weather-icon span,.current-weather-info span{
+font-size: 20px;
+font-weight: 700;
+color: #ffffff;
+}
 .current-weather img{
     width: 200px;
     height: 200px;
+    margin-bottom: 25px;
 }
 
 .comming-hours{
@@ -133,8 +147,8 @@ color: #afd2ff;
     overflow-x: scroll;
     border-radius: 20px;
     height: 20%;
-    background-color:#29394c;
-    width: fit-content;
+    background-color:#9294971e;
+    width: 80%;
     max-width: 100%;
     display: flex;
     align-items: center;
@@ -168,8 +182,8 @@ color: #afd2ff;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    background-color: #29394c;
+    width: 80%;
+    background-color:#9294971e;
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.186);
 }
 .more-info div{
@@ -186,3 +200,63 @@ color: #afd2ff;
 .more-info div span{
     color: rgb(225, 225, 225);
 }
+
+
+@media (max-width: 1116px) {
+    
+    .current-weather img{
+        width: 100px;
+        height: 100px;
+    }
+
+        .current-weather-info h1{
+        margin-bottom: 20px;
+        }
+}
+
+@media (max-height: 800px) {
+    
+    form input{
+        font-size: 16px;
+    }
+    .current-weather-info h1{
+        font-size: 40px;
+    }
+    .current-weather img{
+        width: 100px;
+        height: 100px;
+    }
+    .comming-hours{
+        height: fit-content;
+        padding: 15px;
+    }
+    .more-info{
+     padding: 0;   
+    }
+    .more-info div{
+        margin: 10px 0px;
+    }
+    
+}
+
+@media (max-width: 1069px) {
+    .main-container{
+        height: fit-content;
+    }
+    .comming-hours{
+        height: fit-content;
+        padding: 15px;
+        margin: 5px;
+    }
+    .more-info{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: 10px;
+        width: fit-content;
+       }
+    .more-info div{
+        width: 50px;
+    }
+    
+}
+    
