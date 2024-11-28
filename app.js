@@ -4,7 +4,6 @@ import { weatherfound } from "./weatherfound.js";
 const search_input = document.querySelector('.search-input');
 const search_btn = document.getElementById('search_btn');
 const main_cont = document.querySelector('.main-container');
-
 function queryUpdatedDOM() {
     return {
         city_name: document.querySelector('.current-weather-info h1'),
@@ -33,13 +32,19 @@ async function fetchData(city) {
         ]);
 
         if (DataForecast.cod == "200" && DataWeather.cod == 200) {
-            app_cont.innerHTML = weatherfound();
-
+            document.querySelector('.app-content').innerHTML = weatherfound();
             const updatedElements = queryUpdatedDOM();
-            
             UpdateWeather(DataWeather, updatedElements);
             ForecastData(DataForecast, updatedElements);
-            main_cont.style.height = '80%';
+            setTimeout(()=>{
+            document.querySelector('.current-weather-info').classList.add('active');
+            document.querySelector('.weather-icon').classList.add('active');
+            [document.querySelector('.comming-hours'),document.querySelector('.more-info')].forEach(ele=>{
+                ele.classList.add('active');
+            })
+            },200);
+
+
         } else {
             throw new Error("Fetch failed");
         }
@@ -49,7 +54,7 @@ async function fetchData(city) {
 }
 
 async function UpdateWeather(Data, elements) {
-    console.log(Data)
+//console.log(Data)
     elements.city_name.textContent = Data.name;
     elements.temp.textContent = `${Math.round(Data.main.temp)}° / ${Math.floor(Data.main.temp_min)}°`;
     elements.date.textContent = currentDate();
